@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'foodie_theme.dart';
 
 void main() {
   runApp(const Foodie());
@@ -9,21 +9,24 @@ class Foodie extends StatelessWidget {
   const Foodie({super.key});
   @override
   Widget build(BuildContext context) {
-    //TODO: Create theme
+    final theme = FoodieTheme.dark();
     //TODO: Apply Home widget
     return MaterialApp(
-      //TODO: Add theme
+      theme: theme,
       title: 'Foodie',
       home: Scaffold(
-        //TODO: Style the title
         appBar: AppBar(
-          title: const Text('Foodie'),
+          title: Text(
+            'Foodie',
+            style: theme.textTheme.titleLarge,
+            ),
         ),
-        //TODO: Style body text
-        body: const Center(
+
+        body: Center(
           child: Text(
-            'Let\'s get cooking 👩‍🍳🍳'
-          )
+            'Let\'s get cooking 👩‍🍳🍳',
+            style: theme.textTheme.displayLarge,
+          ),
         ),
       ),
     );
