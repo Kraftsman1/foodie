@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../author_card.dart';
+import '../foodie_theme.dart';
 class Card2 extends StatelessWidget {
   const Card2({super.key});
 
@@ -20,14 +21,38 @@ class Card2 extends StatelessWidget {
             Radius.circular(10),
           ),
         ),
-        child: const Column(
+        child: Column(
           children: [
-            AuthorCard(
+            const AuthorCard(
               authorName: 'John Doe', 
               title: 'Pizza Artisan', 
-              imageProvider: AssetImage('assets/me.jpg'),
-              )
-            //TODO: Add Positioned text
+              imageProvider: AssetImage('assets/me.jpeg'),
+              ),
+            Expanded(
+              child: Stack(
+                children: [
+                  Positioned(
+                    bottom: 16,
+                    right: 16,
+                    child: Text(
+                      'Recipe',
+                      style: FoodieTheme.lightTextTheme.displayLarge,
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 70,
+                    left: 16,
+                    child: RotatedBox(
+                      quarterTurns: 3,
+                      child: Text(
+                        'Pizza',
+                        style: FoodieTheme.lightTextTheme.displayLarge,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
